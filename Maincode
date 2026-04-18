@@ -1,27 +1,32 @@
 import tkinter as tk
+from tkinter import ttk, StringVar
 
 root = tk.Tk()
+root.geometry("275x200")
+root.resizable(False, False)
+
+password = StringVar()
+
 root.title("Register page")
 
-label_Un = tk.Label(root, text="Username").grid(row=0,column=0)
-label_N = tk.Label(root, text="Name").grid(row=1,column=0)
-label_MA = tk.Label(root, text="Mail Address").grid(row=2,column=0)
-label_P = tk.Label(root, text="Password").grid(row=3,column=0)
-
-label_Un.pack()
-label_N.pack()
-label_MA.pack()
-label_P.pack()
+label_Un = tk.Label(root, text="Username", font=("Nuinto", 14)).grid(row=0,column=0, columnspan=2)
+label_N = tk.Label(root, text="Name", font=("Nuinto", 14)).grid(row=1,column=0, columnspan=2)
+label_MA = tk.Label(root, text="Mail Address", font=("Nuinto", 14)).grid(row=2,column=0, columnspan=2)
+label_P = tk.Label(root, text="Password", font=("Nuinto", 14)).grid(row=3,column=0, columnspan=2)
 
 entry_Un = tk.Entry(root)
 entry_N = tk.Entry(root)
 entry_MA = tk.Entry(root)
-entry_P = tk.Entry(root)
+entry_P = tk.Entry(root, textvariable= password, show="*")
 
-entry_Un.grid(row=0, column=1)
-entry_N.grid(row=1, column=1)
-entry_MA.grid(row=2, column=1)
-entry_P.grid(row=3, column=1)
+
+
+
+
+entry_Un.grid(row=0, column=2, columnspan=2)
+entry_N.grid(row=1, column=2, columnspan=2)
+entry_MA.grid(row=2, column=2, columnspan=2)
+entry_P.grid(row=3, column=2, columnspan=2)
 
 varM = tk.IntVar()
 varF = tk.IntVar()
@@ -30,6 +35,15 @@ varO = tk.IntVar()
 tk.Checkbutton(root, text="Male", variable=varM).grid(row=4, column=0, sticky=tk.W)
 tk.Checkbutton(root, text="Female", variable=varF).grid(row=4, column=1, sticky=tk.W)
 tk.Checkbutton(root, text="Other", variable=varO).grid(row=4, column=2, sticky=tk.W)
+
+def retrieve_value():
+    entry_P_content = entry_P.get()
+    print(entry_P_content)
+
+button = ttk.Button(root, text="Print text", command=retrieve_value)
+button.grid(row=5, column=1, ipadx=10, ipady=10, columnspan=2)
+
+#PPCracker
 
 
 root.mainloop()
