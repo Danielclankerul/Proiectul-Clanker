@@ -45,5 +45,24 @@ button.grid(row=5, column=1, ipadx=10, ipady=10, columnspan=2)
 
 #PPCracker
 
+import hashlib
+# Just use the name of the file in quotes
+wordlist = "passwords.txt"
+found =False
+with open(wordlist, "r", encoding="utf-8", errors="ignore") as file:
+    for line in file:
+        for line in file:
+            # Clean the word from the list (remove spaces/newlines)
+            password_attempt = line.strip()
 
+            # Check if it matches your target
+            if password_attempt == entry_P:
+                print(f"Match found! The password is: {password_attempt}")
+                found = True
+                break  # Stops the loop immediately once found
+
+            if not found:
+               print("Password not found in the list.")
+
+# nu bun
 root.mainloop()
