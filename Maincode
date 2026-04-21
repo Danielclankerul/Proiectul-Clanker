@@ -40,7 +40,7 @@ def retrieve_value():
     entry_P_content = entry_P.get()
     print(entry_P_content)
 
-button = ttk.Button(root, text="Print text", command=retrieve_value)
+button = ttk.Button(root, text="Done", command=retrieve_value)
 button.grid(row=5, column=1, ipadx=10, ipady=10, columnspan=2)
 
 #PPCracker
